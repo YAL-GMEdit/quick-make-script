@@ -1,0 +1,6 @@
+{
+	"name": "quick-make-script",
+	"description": "Allows to quickly create scripts right from the code editor",
+	"scripts": ["quick-make-script.js"],
+	"stylesheets": []
+}
