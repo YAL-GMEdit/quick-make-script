@@ -1,4 +1,4 @@
-# quick-make-script
+# Quick, make script!
 
 **Quick links:** [itch.io page](https://yellowafterlife.itch.io/gmedit-quick-make-script)
 
