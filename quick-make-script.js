@@ -69,7 +69,8 @@
 				if (name != "") {
 					create(e, name, el, order, true);
 				} else {
-					$gmedit["electron.DialogFallback"].showPrompt("Script name?", "", (name) => {
+					var dlg = $gmedit["electron.DialogFallback"] || $gmedit["electron.Dialog"];
+					dlg.showPrompt("Script name?", "", (name) => {
 						if (!name) return;
 						create(e, name, el, order, false);
 					});
