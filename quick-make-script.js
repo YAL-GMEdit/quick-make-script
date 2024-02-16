@@ -31,17 +31,18 @@
 		TreeView.on("dirMenu", function(e) {
 			item.checked = e.element == target;
 			var path = e.element.getAttribute("data-rel-path");
-			item.enabled = path.startsWith("Scripts/");
+			item.enabled = path.startsWith("Scripts/") || $gmedit['gml.Project'].current.isGMS23;
 		});
 		//
 		function create(editor, name, el, order, isSelection) {
 			function doOpen() {
 				TreeViewItemMenus.updatePrefix(el);
-				if (TreeViewItemMenus.prefix != "scripts/") {
+				const v23 = $gmedit['gml.Project'].current.isGMS23;
+				if (!v23 && TreeViewItemMenus.prefix != "scripts/") {
 					alert("Can't create a script next to this resource - please set a target directory via right-click > Create > Create here");
 					return;
 				}
-				TreeViewItemMenus.createImplBoth(false, order, el, name);
+				TreeViewItemMenus.createImplBoth(v23 ? "script" : false, order, el, name);
 				setTimeout(() => {
 					editor.session.bgTokenizer.start();
 				});
